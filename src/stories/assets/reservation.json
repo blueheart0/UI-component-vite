@@ -1,0 +1,44 @@
+[
+  {
+    "hospitalId": "vatech",
+    "id": "1",
+    "dateBegin": 1635218400000,
+    "dateEnd": 1635219000000
+  },
+  {
+    "hospitalId": "vatech",
+    "id": "2",
+    "dateBegin": 1651474800000,
+    "dateEnd": 1651476400000
+  },
+  {
+    "hospitalId": "vatech",
+    "id": "3",
+    "dateBegin": 1651536000000,
+    "dateEnd": 1651536600000
+  },
+  {
+    "hospitalId": "vatech",
+    "id": "4",
+    "dateBegin": 1651470000000,
+    "dateEnd": 1651470600000
+  },
+  {
+    "hospitalId": "vatech",
+    "id": "5",
+    "dateBegin": 1651471200000,
+    "dateEnd": 1651471800000
+  },
+  {
+    "hospitalId": "vatech",
+    "id": "6",
+    "dateBegin": 1651471200000,
+    "dateEnd": 1651472400000
+  },
+  {
+    "hospitalId": "vatech",
+    "id": "7",
+    "dateBegin": 1651471200000,
+    "dateEnd": 1651473000000
+  }
+]
