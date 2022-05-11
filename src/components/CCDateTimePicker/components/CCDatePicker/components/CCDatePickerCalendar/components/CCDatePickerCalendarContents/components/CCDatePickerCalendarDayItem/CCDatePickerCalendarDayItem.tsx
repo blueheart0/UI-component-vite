@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from "react";
+import React, { PropsWithChildren, useCallback, useMemo } from "react";
 import {
   CALENDAR_VIEW,
   CCDatePickerCalendarSeriesProps,
@@ -76,9 +76,9 @@ const _isBetween = (
   );
 };
 
-const CCDatePickerCalendarDayItem: React.FC<CCDatePickerCalendarSeriesProps> = (
-  props: CCDatePickerCalendarSeriesProps
-) => {
+const CCDatePickerCalendarDayItem: React.FC<
+  PropsWithChildren<CCDatePickerCalendarSeriesProps>
+> = (props: CCDatePickerCalendarSeriesProps) => {
   const {
     date,
     value,

@@ -45,7 +45,7 @@ const CCDatePickerMonthPicker: React.FC<
   const { value, open, view, onChange = () => {} } = props;
 
   const isCurrent = useCallback(
-    month => {
+    (month: number) => {
       if (value instanceof Date) {
         return new DateObject(value).month === month;
       }

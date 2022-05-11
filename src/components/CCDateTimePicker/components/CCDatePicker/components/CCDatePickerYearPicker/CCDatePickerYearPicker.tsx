@@ -84,7 +84,7 @@ const CCDatePickerYearPicker: React.FC<CCDatePickerYearPickerProps> = props => {
     return _res;
   }, [value, page]);
   const isCurrent = useCallback(
-    year => {
+    (year: number) => {
       if (value instanceof Date) {
         return new DateObject(value).year === year;
       }

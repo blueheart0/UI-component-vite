@@ -1,10 +1,10 @@
 const path = require("path");
+const { mergeConfig } = require("vite");
+const react = require("@vitejs/plugin-react");
+const checker = require("vite-plugin-checker");
 module.exports = {
-  "stories": [
-    "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)"
-  ],
-  "addons": [
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
@@ -21,19 +21,25 @@ module.exports = {
       }
     }
   ],
-
-  "framework": "@storybook/react",
-  "core": {
-    "builder": "@storybook/builder-vite"
+  viteFinal: async (config, { configType }) => {
+    return mergeConfig(config, {
+      esbuild: {
+        jsxFactory: "jsx",
+        jsxInject: `import { jsx } from '@emotion/react'`
+      },
+      plugins: [react(), checker({ typescript: true })]
+    });
   },
-  "typescript": {
-    check: false,
-    checkOptions: {},
-    reactDocgen: "react-docgen-typescript",
-    reactDocgenTypescriptOptions: {
-      shouldExtractLiteralValuesFromEnum: true,
-      propFilter: prop =>
-          prop.parent ? !/node_modules/.test(prop.parent.fileName) : true
-    }
+  framework: "@storybook/react",
+  core: {
+    builder: "@storybook/builder-vite"
+  },
+  typescript: {
+    reactDocgen: "react-docgen"
+    // reactDocgenTypescriptOptions: {
+    //   shouldExtractLiteralValuesFromEnum: true,
+    //   propFilter: prop =>
+    //     prop.parent ? !/node_modules/.test(prop.parent.fileName) : true
+    // }
   }
-}
+};

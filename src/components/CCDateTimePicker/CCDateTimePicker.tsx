@@ -1,6 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { CCDialog } from "../../components";
-import { CALENDAR_VIEW, CCDateTimePickerProps, PICKER_FEATURES } from "./types";
+import {
+  CALENDAR_VIEW,
+  CCDateTimePickerProps,
+  CCDateTimePickerWeekValue,
+  PICKER_FEATURES
+} from "./types";
 import styled from "@emotion/styled";
 import { CCDatePicker, CCDateTimePickerHeader } from "./components";
 import CCTimePicker from "./components/CCTimePicker";
@@ -55,7 +60,7 @@ const CCDateTimePicker: React.FC<CCDateTimePickerProps> = props => {
     setValue(propsValue);
   }, [propsValue]);
   const handleChange = useCallback(
-    value => {
+    (value: Date | CCDateTimePickerWeekValue) => {
       onChange?.(value);
     },
     [onChange]

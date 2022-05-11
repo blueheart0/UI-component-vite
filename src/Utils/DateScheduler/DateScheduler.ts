@@ -77,7 +77,7 @@ class DateScheduler implements DateSchedulerClass {
       }
     }
     if (item.dateBegin && item.dateEnd) {
-      let _search: DateSchedulerEventSearchResultItem[] = this._tree.search(
+      let _search: SearchOutput<string> = this._tree.search(
         [item.dateBegin.getTime(), item.dateEnd.getTime()],
         (
           value: string,
